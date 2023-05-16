@@ -27,6 +27,7 @@ void turnX(void);
 void game_over(void);
 void winner_x(void);
 void winner_o(void);
+void splachScreen(void);
 
 
 int f = 0;
@@ -146,10 +147,12 @@ int main(void){
 	Timer0_Init(160000000);//1 sec timer
   Timer2_Init(160000000);//1 sec timer
 	
+ splachScreen();
+ Delay100ms(5);
+  // startGame();
 
 
-
-	// turnX();
+// turnX();
 	
 }
 
@@ -212,6 +215,13 @@ void startGame(void)
 		outerX = 1;
 		outerY += 5;
 	}	
+}
+
+void splashScreen()
+{
+  Nokia5110_Clear();
+  Nokia5110_SetCursor(2, 2);
+  Nokia5110_OutString("XO GAME");
 }
 
 void game_over() {
