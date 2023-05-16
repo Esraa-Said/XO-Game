@@ -4,3 +4,4 @@
 .\xo.o: timers.h
 .\xo.o: ports.h
 .\xo.o: TExaS.h
+.\xo.o: shapes.h
