@@ -411,14 +411,14 @@
               <FilePath>.\Nokia5110.c</FilePath>
             </File>
             <File>
-              <FileName>SpaceInvaders.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\SpaceInvaders.c</FilePath>
-            </File>
-            <File>
               <FileName>TExaS.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\TExaS.c</FilePath>
+            </File>
+            <File>
+              <FileName>xo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\xo.c</FilePath>
             </File>
           </Files>
         </Group>

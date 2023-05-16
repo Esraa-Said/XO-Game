@@ -12,27 +12,22 @@ void EnableInterrupts(void);  // Enable interrupts
 void Delay100ms(unsigned long count); // time delay in 0.1 seconds
 
 
-// *************************** Images ***************************
-// enemy ship that starts at the top of the screen (arms/mouth closed)
-// width=16 x height=10
-
-
-
-
-
-// 2. Declarations Section
-//   Global Variables
+// Declarations Section
+// Global Variables
 unsigned long SW1,SW2;  // input from PF4,PF0
 unsigned long Out;      // outputs to PF3,PF2,PF1 (multicolor LED)
 
-//   Function Prototypes
+// Function Prototypes
 void PortF_Init(void);
 void EnableInterrupts(void);
-
 
 void startGame(void);
 void turnO(void);
 void turnX(void);
+void game_over(void);
+void winner_x(void);
+void winner_o(void);
+
 
 int f = 0;
 
@@ -136,9 +131,9 @@ const unsigned char VLine[] = {
  0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF
 };
 
+
 #define SQUAREHEIGHT     ((unsigned char)square[22])
 #define VH               ((unsigned char)VLine[22])
-
 
 int main(void){
   
@@ -147,18 +142,15 @@ int main(void){
   EnableInterrupts();  // The grader uses interrupts
 	TExaS_Init(SSI0_Real_Nokia5110_Scope);  // set system clock to 80 MHz
   Nokia5110_Init();
-  Timer0_Init(160000000);//1 sec timer
+  
+	Timer0_Init(160000000);//1 sec timer
   Timer2_Init(160000000);//1 sec timer
 	
 
 
 
- turnX();
-
-
+	// turnX();
 	
-
-
 }
 
 // void Timer2A_Handler(void){ 
@@ -181,10 +173,9 @@ int main(void){
 // }
 
 void turnO(void)
-{
-	
-	Nokia5110_PrintBMP(3 * SQUAREHEIGHT  + 9, (VH - 1), VLine, 0);
-	Nokia5110_DisplayBuffer();
+{	
+	 Nokia5110_PrintBMP(3 * SQUAREHEIGHT  + 9, (VH - 1), VLine, 0);
+	 Nokia5110_DisplayBuffer();
 	 Nokia5110_SetCursor(8, 2);	
 	 Nokia5110_OutString("(O)");
 	 Nokia5110_SetCursor(8, 4);	
@@ -194,7 +185,7 @@ void turnO(void)
 void turnX(void)
 {
 	
-	startGame();
+	 startGame();
 
 	 Nokia5110_PrintBMP(3 * SQUAREHEIGHT  + 9, (VH - 1), VLine, 0);
 	 Nokia5110_DisplayBuffer();
@@ -212,18 +203,35 @@ void startGame(void)
 	Nokia5110_ClearBuffer(); 
 	for(i=0;i<3;i++)
 	{
-			for(j=0;j<3;j++)
-	{
-		Nokia5110_PrintBMP(j*SQUAREHEIGHT + outerX, (SQUAREHEIGHT - 1) + (dim*i) + outerY, square, 0);
-		Nokia5110_DisplayBuffer();
-		outerX += 1;
-	}
-	outerX = 1;
-	outerY += 5;
-
-	}
-	
-	
+		for(j=0;j<3;j++)
+		{
+			Nokia5110_PrintBMP(j*SQUAREHEIGHT + outerX, (SQUAREHEIGHT - 1) + (dim*i) + outerY, square, 0);
+			Nokia5110_DisplayBuffer();
+			outerX += 1;
+		}
+		outerX = 1;
+		outerY += 5;
+	}	
 }
 
+void game_over() {
+	Nokia5110_Clear();
+  Nokia5110_SetCursor(2, 2);
+  Nokia5110_OutString("GAME OVER");
+}
 
+void winner_x() {
+	Nokia5110_Clear();
+  Nokia5110_SetCursor(1, 1);
+  Nokia5110_OutString("THE WINNER");
+  Nokia5110_SetCursor(4, 3);
+  Nokia5110_OutString("( X )");
+}
+
+void winner_o() {
+	Nokia5110_Clear();
+  Nokia5110_SetCursor(1, 1);
+  Nokia5110_OutString("THE WINNER");
+  Nokia5110_SetCursor(4, 3);
+  Nokia5110_OutString("( O )");
+}
