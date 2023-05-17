@@ -58,7 +58,7 @@ int main(void){
   EnableInterrupts();  // The grader uses interrupts
 	TExaS_Init(SSI0_Real_Nokia5110_Scope);  // set system clock to 80 MHz
   Nokia5110_Init();
-  //Timer0_Init(160000000);//1 sec timer
+  Timer0_Init(0.25 * 160000000);//1 sec timer
   //Timer2_Init(160000000);//1 sec timer
 	
 	splashScreen();
@@ -72,25 +72,20 @@ int main(void){
 	
 	while(1){
 
-		if (ok)break;
-		
-		 SW1 = GPIO_PORTF_DATA_R&0x10;     // read PF4 into SW1
+		if (ok)break;	
+		SW1 = GPIO_PORTF_DATA_R&0x10;     // read PF4 into SW1
     SW2 = GPIO_PORTF_DATA_R&0x01;     // read PF0 into SW2
-	
     if((!SW2) && SW1){                // just SW2 pressed
-				move();
+			move();
 			if(turn)turnX();
 			else turnO();
 		}
 		else if((!SW1) && SW2){              // just SW1 pressed
-				if(update())break;
-			 if(turn)turnO();
+			if(update())break;
+			if(turn)turnO();
 			else turnX();
-		
+			TIMER0_ICR_R = 0x00000001;
 		}
-
-	 
-	 
  }
 
 
@@ -114,10 +109,13 @@ int main(void){
 	
 // }
 
-// void Timer0A_Handler(void){
-//   TIMER0_ICR_R = 0x00000001;   // acknowledge timer2A timeout
-// 	GPIO_PORTF_DATA_R^=0x02;
-// }
+void Timer0A_Handler(void){
+	TIMER0_ICR_R = 0x00000001;   // acknowledge timer2A timeout
+	GPIO_PORTF_DATA_R^=0x02;
+	turn = 1 - turn;
+	if (turn)turnO();
+	else turnX();
+}
 
 void turnO(void)
 {
@@ -292,6 +290,7 @@ if(od==3||rdo==3)
 if(d==9)return 3;
 	return 0;
 }
+
 void splashScreen()
 {
   Nokia5110_Clear();
