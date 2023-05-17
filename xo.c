@@ -230,6 +230,12 @@ int update(){
 		
 		w = checkWinner();
 
+		if (w != 0)
+		{
+			startGame();
+			Delay100ms(10);
+		}
+		
 		if(w==1)
 		{
 			GPIO_PORTF_DATA_R=0x04; 
