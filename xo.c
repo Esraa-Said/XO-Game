@@ -83,6 +83,7 @@ int main(void){
 			move();
 			if(turn)turnO();
 			else turnX();
+			Delay100ms(2);
 		}
 		else if((!SW1) && SW2){              // just SW1 pressed
 			Timer0_Init(5 * 160000000);//1 sec timer
@@ -91,15 +92,9 @@ int main(void){
 			if(update())break;
 			if(turn)turnO();
 			else turnX();
-			
+			Delay100ms(2);
 		}
  }
-
-
-
-	
-
-
 }
 
 void Timer2A_Handler(void){ 
