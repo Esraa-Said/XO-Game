@@ -10,7 +10,10 @@ int arr[3][3]={0,0,0,0,0,0,0, 0, 0};
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
 void Delay100ms(unsigned long count); // time delay in 0.1 seconds
-int pos;
+void printTime(void);
+
+
+int pos, time = 1;
 
 
 // check winner  0  draw   1 x     2  o   3 no action
@@ -58,17 +61,18 @@ int main(void){
   EnableInterrupts();  // The grader uses interrupts
 	TExaS_Init(SSI0_Real_Nokia5110_Scope);  // set system clock to 80 MHz
   Nokia5110_Init();
-  Timer0_Init(0.25 * 160000000);//1 sec timer
-  //Timer2_Init(160000000);//1 sec timer
+  
 	
 	splashScreen();
 	Delay100ms(5);
 	
+	Timer0_Init(5 * 160000000);//1 sec timer
+  Timer2_Init(160000000);//1 sec timer
+	
 	pos=0;
 	turn=0;
-	//arr[0][0]=3;
+	arr[0][0]=3;
 	turnX();
-	
 	
 	while(1){
 
@@ -77,14 +81,17 @@ int main(void){
     SW2 = GPIO_PORTF_DATA_R&0x01;     // read PF0 into SW2
     if((!SW2) && SW1){                // just SW2 pressed
 			move();
-			if(turn)turnX();
-			else turnO();
+			if(turn)turnO();
+			else turnX();
 		}
 		else if((!SW1) && SW2){              // just SW1 pressed
+			Timer0_Init(5 * 160000000);//1 sec timer
+			 Timer2_Init(160000000);//1 sec timer
+			time = 1;
 			if(update())break;
 			if(turn)turnO();
 			else turnX();
-			TIMER0_ICR_R = 0x00000001;
+			
 		}
  }
 
@@ -95,24 +102,19 @@ int main(void){
 
 }
 
-// void Timer2A_Handler(void){ 
-//   TIMER2_ICR_R = 0x00000001;   // acknowledge timer2A timeout
-// 	GPIO_PORTF_DATA_R^=0x04;
-	
-// 	Nokia5110_ClearBuffer();
-// 	Nokia5110_DisplayBuffer();      // draw buffer
-// 	//Nokia5110_PrintBMP(f, 19, Bunker0, 0);
-// 	//Nokia5110_PrintBMP(f, 23, mm, 0); // player ship middle bottom
-// 	Nokia5110_PrintBMP(f, 23, mmm, 0);
-// 	Nokia5110_DisplayBuffer();     // draw buffer
-// 	if(f<64)f++;
-	
-// }
+void Timer2A_Handler(void){ 
+   TIMER2_ICR_R = 0x00000001;   // acknowledge timer2A timeout
+ 	GPIO_PORTF_DATA_R^=0x04;
+	time++;
+	if (turn)turnO();
+	else turnX();
+}
 
 void Timer0A_Handler(void){
 	TIMER0_ICR_R = 0x00000001;   // acknowledge timer2A timeout
 	GPIO_PORTF_DATA_R^=0x02;
 	turn = 1 - turn;
+	time = 0;
 	if (turn)turnO();
 	else turnX();
 }
@@ -124,8 +126,9 @@ void turnO(void)
 	Nokia5110_DisplayBuffer();
 	 Nokia5110_SetCursor(8, 2);	
 	 Nokia5110_OutString("(O)");
-	 Nokia5110_SetCursor(8, 4);	
-	 Nokia5110_OutString("Turn");
+	 //Nokia5110_SetCursor(8, 4);	
+	 //Nokia5110_OutString("Turn");'
+	printTime();
 }
 
 void turnX(void)
@@ -138,8 +141,25 @@ void turnX(void)
 	
 	 Nokia5110_SetCursor(8, 2);	
 	 Nokia5110_OutString("(X)");
-	 Nokia5110_SetCursor(8, 4);	
-	 Nokia5110_OutString("Turn");
+	 //Nokia5110_SetCursor(8, 4);	
+	 //Nokia5110_OutString("Turn");
+	printTime();
+}
+
+void printTime()
+{
+	Nokia5110_SetCursor(8, 4);	
+	if (time == 1)Nokia5110_OutString("01");
+	else if (time == 2)Nokia5110_OutString("02");
+	else if (time == 3)Nokia5110_OutString("03");
+	else if (time == 4)Nokia5110_OutString("04");
+	else if (time == 5)Nokia5110_OutString("05");
+	else if (time == 6)Nokia5110_OutString("06");
+	else if (time == 7)Nokia5110_OutString("07");
+	else if (time == 8)Nokia5110_OutString("08");
+	else if (time == 9)Nokia5110_OutString("09");
+	else if (time == 10)Nokia5110_OutString("10");
+
 }
 
 void Delay100ms(unsigned long count){unsigned long volatile time;
