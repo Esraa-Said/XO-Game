@@ -73,27 +73,30 @@ int main(void){
 	turn=0;
 	arr[0][0]=3;
 	turnX();
-	
+	SW1=1;
+	SW2=1;
 	while(1){
 
 		if (ok)break;	
-		SW1 = GPIO_PORTF_DATA_R&0x10;     // read PF4 into SW1
-    SW2 = GPIO_PORTF_DATA_R&0x01;     // read PF0 into SW2
-    if((!SW2) && SW1){                // just SW2 pressed
+		//SW1 = GPIO_PORTF_DATA_R&0x10;     // read PF4 into SW1
+    		//SW2 = GPIO_PORTF_DATA_R&0x01;     // read PF0 into SW2
+	if((!SW2) && SW1){                // just SW2 pressed
+			SW2=1;
 			move();
 			if(turn)turnO();
 			else turnX();
 		}
 		else if((!SW1) && SW2){              // just SW1 pressed
+			SW1=1;
 			Timer0_Init(5 * 160000000);//1 sec timer
 			 Timer2_Init(160000000);//1 sec timer
 			time = 1;
 			if(update())break;
 			if(turn)turnO();
 			else turnX();
-			
+
 		}
- }
+	}
 
 
 
@@ -101,7 +104,29 @@ int main(void){
 
 
 }
-
+void GPIOPortB_Handler(void){
+	
+if (GPIO_PORTF_MIS_R & 0x10) /* is it SW1 (PB4)?*/
+    {                            
+      Delay100ms(5);
+      if (!(GPIO_PORTB_DATA_R & 0x10))
+      {
+	 SW1=0;
+	 SW2=1;
+        GPIO_PORTB_ICR_R |= 0x10;
+      }
+    }
+    else if (GPIO_PORTB_MIS_R & 0x01) /* then it must be SW2 (PB0) */
+    {                                
+      Delay100ms(5);
+      if (!(GPIO_PORTB_DATA_R & 0x01))
+      {
+	      	SW1=1;
+	 	SW2=0;
+        GPIO_PORTB_ICR_R |= 0x01;
+      }
+    }
+}
 void Timer2A_Handler(void){ 
    TIMER2_ICR_R = 0x00000001;   // acknowledge timer2A timeout
  	GPIO_PORTF_DATA_R^=0x04;
