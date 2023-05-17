@@ -138,10 +138,9 @@ void Timer2A_Handler(void){
 void Timer0A_Handler(void){
 	TIMER0_ICR_R = 0x00000001;   // acknowledge timer2A timeout
 	GPIO_PORTF_DATA_R^=0x02;
-	turn = 1 - turn;
+	
 	time = 0;
-	if (turn)turnO();
-	else turnX();
+	SW1=0;
 }
 
 void turnO(void)
