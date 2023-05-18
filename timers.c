@@ -17,7 +17,7 @@ void Timer0_Init(unsigned long period){
   TIMER0_TAPR_R = 0;            // 5) bus clock resolution
   TIMER0_ICR_R = 0x00000001;    // 6) clear TIMER0A timeout flag
   TIMER0_IMR_R = 0x00000001;    // 7) arm timeout interrupt
-  NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF)|0xE0000000; // 8) priority 7
+  NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF)|0xC0000000; // 8) priority 7
   NVIC_EN0_R = 1<<19;           // 9) enable IRQ 19 in NVIC
   TIMER0_CTL_R = 0x00000001;    // 10) enable TIMER0A
 }
