@@ -8,3 +8,4 @@ void PortF_Init(void);
 void EnableInterrupts(void);
 void WaitForInterrupt(void);
 void GPIOF_Handler(void);
+void GPIOPortB_Handler(void);
