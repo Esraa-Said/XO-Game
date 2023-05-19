@@ -14,5 +14,5 @@ void turnX(void);
 void startGame(void);
 // Function to end the game
 void end_game(void);
-// Function to display menu options on Nokia5110 screen
-void menu(void);
+// Function to display play again option on Nokia5110 screen
+void play_again(void);
