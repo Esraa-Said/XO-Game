@@ -1,0 +1,9 @@
+void splashScreen(void);
+void draw(void);
+void winner_x(void);
+void winner_o(void);
+void startGame(void);
+void turnO(void);
+void turnX(void);
+void end_game(void);
+void menu(void);
