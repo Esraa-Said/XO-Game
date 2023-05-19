@@ -41,54 +41,55 @@ for using hardware, these components can be used:
 | update led       |   PB7                       |
 
 
-### Game veiws
+## Game veiws
 
 
-<p align="center"> <h2>start game</h2> 
+
+<p align="center">start game 
 </p>
 <p align="center">
         <img src = "./game/images/splashScreen.png"/>
 </p>
 
 
-<p align="center"> <h2>X take turn </h2> </p>
+<p align="center">X take turn  </p>
 
 <p align="center">
 <img src = "./game/images/tunrX.png"/>
 </p>
 
 
-<p align="center"> <h2> O take turn  </h2> </p>
+<p align="center"> O take turn   </p>
 
 <p align="center">
 <img src = "./game/images/turnO.png"/>
 </p>
 
-<p align="center"> <h2>  X wins  </h2> </p>
+<p align="center">  X wins   </p>
 
 <p align="center">
 <img src = "./game/images/winnerX.png"/>
 </p>
 
-<p align="center"> <h2> O wins  </h2> </p>
+<p align="center"> O wins   </p>
 
 <p align="center">
 <img src = "./game/images/winnerO.png"/>
 </p>
 
-<p align="center"> <h2> Draw  </h2> </p>
+<p align="center"> Draw   </p>
 
 <p align="center">
 <img src = "./game/images/draw.png"/>
 </p>
 
-<p align="center"> <h2> Play agian?   </h2> </p>
+<p align="center"> Play agian?    </p>
 
 <p align="center">
 <img src = "./game/images/play_again.png"/>
 </p>
 
-<p align="center"> <h2> End Game  </h2> </p>
+<p align="center"> End Game   </p>
 
 <p align="center">
 <img src = "./game/images/end_game.png"/>
