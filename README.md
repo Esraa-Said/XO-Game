@@ -45,51 +45,51 @@ for using hardware, these components can be used:
 
 
 
-<p align="center"> <h4>start game</h4> 
+<p align="center">start game 
 </p>
 <p align="center">
         <img src = "./images/splashScreen.png"/>
 </p>
 
 
-<p align="center"> <h4>X take turn </h4> </p>
+<p align="center">X take turn  </p>
 
 <p align="center">
 <img src = "./images/tunrX.png"/>
 </p>
 
 
-<p align="center"> <h4> O take turn  </h4> </p>
+<p align="center"> O take turn   </p>
 
 <p align="center">
 <img src = "./images/turnO.png"/>
 </p>
 
-<p align="center"> <h4>  X wins  </h4> </p>
+<p align="center">  X wins   </p>
 
 <p align="center">
 <img src = "./images/winnerX.png"/>
 </p>
 
-<p align="center"> <h4> O wins  </h4> </p>
+<p align="center"> O wins   </p>
 
 <p align="center">
 <img src = "./images/winnerO.png"/>
 </p>
 
-<p align="center"> <h4> Draw  </h4> </p>
+<p align="center"> Draw   </p>
 
 <p align="center">
 <img src = "./images/draw.png"/>
 </p>
 
-<p align="center"> <h4> Play agian?   </h4> </p>
+<p align="center"> Play agian?    </p>
 
 <p align="center">
 <img src = "./images/play_again.png"/>
 </p>
 
-<p align="center"> <h4> End Game  </h4> </p>
+<p align="center"> End Game   </p>
 
 <p align="center">
 <img src = "./images/end_game.png"/>
