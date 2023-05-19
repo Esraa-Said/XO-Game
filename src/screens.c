@@ -8,11 +8,16 @@
 
 // Declaring external integer array of size 3x3
 extern int arr[3][3];
+extern int time, turn;
 
 // Defining macros for square height, vertical line height, and playAgain screen height
 #define SQUAREHEIGHT     ((unsigned char)square[22])
 #define VH               ((unsigned char)VLine[22])
 #define playAgainH       ((unsigned char)playAgain[22])
+#define EXITH ((unsigned char)exit[22])
+#define TURNXOBOXH ((unsigned char)turnxbox[22])
+#define TURNTIMERBOXH ((unsigned char)t1[22])
+#define XOH ((unsigned char)xo[22])
 
 /*
   0 empty
@@ -25,7 +30,7 @@ extern int arr[3][3];
 void startGame(void)
 {
   // Initializing variables
-  int i, j, dim = 10, outerY = 2, outerX = 1;
+  int i, j, dim = 10, outerY = 2, outerX = 1, b = 8;
 
   // Clearning Nokia5110 buffer
   Nokia5110_ClearBuffer();
@@ -44,7 +49,7 @@ void startGame(void)
       else if(arr[i][j] == 3)	tmp = Select;
           
       // Displaying the corresponding shape at the correct position on Nokia5110 screen
-      Nokia5110_PrintBMP(j * SQUAREHEIGHT + outerX, (SQUAREHEIGHT - 1) + (dim * i) + outerY, tmp, 0);
+      Nokia5110_PrintBMP(j * SQUAREHEIGHT + outerX + b + TURNXOBOXH, (SQUAREHEIGHT - 1) + (dim * i) + outerY, tmp, 0);
       Nokia5110_DisplayBuffer();
         
       // Updating X-coordinate for the next shape to be displayed in the same row
@@ -70,10 +75,8 @@ void turnO(void)
   Nokia5110_DisplayBuffer();
 
   // Displaying "PLAY" and "O" at the correct positions on Nokia5110 screen
-  Nokia5110_SetCursor(8, 1);	
-  Nokia5110_OutString("PLAY");
-  Nokia5110_SetCursor(9, 3);	
-  Nokia5110_OutString("O");
+ Nokia5110_PrintBMP(0, TURNXOBOXH - 1, turnobox, 0);
+	Nokia5110_DisplayBuffer();
 
   // Printing time elapsed since starting the game
   printTime();
@@ -92,10 +95,9 @@ void turnX(void)
   Nokia5110_DisplayBuffer();
 
   // Displaying "PLAY" and "X" at the correct positions on Nokia5110 screen
-  Nokia5110_SetCursor(8, 1);	
-  Nokia5110_OutString("PLAY");
-  Nokia5110_SetCursor(9, 3);	
-  Nokia5110_OutString("X");
+	Nokia5110_PrintBMP(0, TURNXOBOXH - 1, turnxbox, 0);
+	Nokia5110_DisplayBuffer();
+
 
   // Printing time elapsed since starting the game
   printTime();
@@ -149,8 +151,8 @@ void end_game(void)
 
   // Clearing Nokia5110 screen and displaying "XO GAME" at the correct position
   Nokia5110_Clear();
-  Nokia5110_SetCursor(2, 2);
-  Nokia5110_OutString("XO GAME");
+Nokia5110_PrintBMP(0, EXITH - 1,exit , 0);
+Nokia5110_DisplayBuffer();
 }
 
 // Function to display play again option on Nokia5110 screen
@@ -164,3 +166,22 @@ void play_again(void)
   Nokia5110_PrintBMP(0, playAgainH - 1, playAgain, 0);
   Nokia5110_DisplayBuffer();
 }
+
+
+void printTime(void)
+{
+
+  if (time == 1)
+    Nokia5110_PrintBMP(84 - TURNTIMERBOXH, TURNTIMERBOXH - 1, t1, 0);
+
+  else if (time == 2)
+    Nokia5110_PrintBMP(84 - TURNTIMERBOXH, TURNTIMERBOXH - 1, t2, 0);
+
+  else if (time == 3)
+    Nokia5110_PrintBMP(84 - TURNTIMERBOXH, TURNTIMERBOXH - 1, t3, 0);
+  else if (time == 4)
+    Nokia5110_PrintBMP(84 - TURNTIMERBOXH, TURNTIMERBOXH - 1, t4, 0);
+  else if (time == 5)
+    Nokia5110_PrintBMP(84 - TURNTIMERBOXH, TURNTIMERBOXH - 1, t5, 0);
+}
+
