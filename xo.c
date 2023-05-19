@@ -42,7 +42,8 @@ int main(void){
   
 	setLED_D();
 	splashScreen();
-	Delay100ms(20);
+	clear_switches();
+	while (!SW1 && !SW2){}
 	
 	//Timer0_Init(5 * 160000000);//1 sec timer
   Timer2_Init(160000000);//1 sec timer
