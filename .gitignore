@@ -1,0 +1,13 @@
+*.o
+*.d
+*.dep
+*.bak
+*.crf
+*.lnp
+*.lst
+*.htm
+*.build_log.htm
+*.map 
+*.axf
+*.uvgui.*
+*.uvopt
