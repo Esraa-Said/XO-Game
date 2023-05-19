@@ -26,13 +26,12 @@ int main(void)
 	// Setting up LED display and displaying splash screen
 	setLED_D();
 	splashScreen();
+		
 	// Clearing any switch inputs
 	clear_switches();
 
 	// Waiting for either SW1 or SW2 to be pressed to start the game
-	while (!SW1 && !SW2)
-	{
-	}
+	while (!SW1 && !SW2) {}
 
 	// Initializing Timer2 with a frequency of 160000000 Hz
 	Timer2_Init(160000000);

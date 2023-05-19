@@ -16,3 +16,5 @@ void startGame(void);
 void end_game(void);
 // Function to display play again option on Nokia5110 screen
 void play_again(void);
+// Function to print the current time on the Nokia5110 display
+void printTime(void);

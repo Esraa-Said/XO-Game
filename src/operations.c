@@ -110,7 +110,7 @@ int checkWinner(void)
 
       if(arr[j][i] == 1) xc++;
       else if(arr[j][i] == 2) oc++;
-  }
+    }
 
     if(x == 3 || xc == 3) return 1;
     else if(o == 3 || oc == 3) return 2;

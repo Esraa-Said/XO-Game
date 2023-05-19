@@ -97,22 +97,3 @@ void Delay100ms(unsigned long count)
     count--;
   }
 }
-
-// // Function to print the current time on the Nokia5110 display
-// void printTime(void)
-// {
-// 	// Set cursor to position (10, 4) on display
-// 	Nokia5110_SetCursor(9, 4);	
-
-// 	// Print the time in two digits
-// 	if (time == 1)Nokia5110_OutString("01");
-// 	else if (time == 2)Nokia5110_OutString("02");
-// 	else if (time == 3)Nokia5110_OutString("03");
-// 	else if (time == 4)Nokia5110_OutString("04");
-// 	else if (time == 5)Nokia5110_OutString("05");
-// 	else if (time == 6)Nokia5110_OutString("06");
-// 	else if (time == 7)Nokia5110_OutString("07");
-// 	else if (time == 8)Nokia5110_OutString("08");
-// 	else if (time == 9)Nokia5110_OutString("09");
-// 	else if (time == 10)Nokia5110_OutString("10");
-// }

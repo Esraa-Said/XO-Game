@@ -11,5 +11,3 @@ void disable_timer2(void);
 
 // Function to delay program execution by 100ms * count
 void Delay100ms(unsigned long count); 
-// Function to print the current time on the Nokia5110 display
-void printTime(void);
