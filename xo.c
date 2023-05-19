@@ -75,8 +75,7 @@ int main(void)
 			// If a player has won or the game has tied, display the play again option and set ok to true to wait for restart or quit
       if(update())
       {
-				disable_timer2();
-				Delay100ms(20);
+				Delay100ms(30);
 				play_again();
 				clear_switches();
 				ok = 1;

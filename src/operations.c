@@ -1,6 +1,7 @@
 // Including necessary header files
 #include "..\./headers/screens.h"
 #include "..\./headers/operations.h"
+#include "..\./headers/timers.h"
 
 // Declaring global variables
 extern int arr[3][3], pos, turn;
@@ -49,11 +50,13 @@ int update(void)
   // Checking if there's a winner
   w = checkWinner();
 
-  // Starting a new game if there's a winner
-  if(w != 0)
-  {
-    startGame();
-  }
+	// if The match is ended
+	if(w != 0) 
+	{
+		startGame(); // Call the function to see how the match ended
+		disable_timer2(); // Disable timer 2
+		Delay100ms(10); // Wait for 1 second before announcing the result 
+	}
 
   // Displaying the winner or draw message if there's a winner or if it's a draw
   if(w == 1)
