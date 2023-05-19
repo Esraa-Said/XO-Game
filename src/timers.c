@@ -101,8 +101,8 @@ void Delay100ms(unsigned long count)
 // Function to print the current time on the Nokia5110 display
 void printTime(void)
 {
-	// Set cursor to position (8, 4) on display
-	Nokia5110_SetCursor(8, 4);	
+	// Set cursor to position (10, 4) on display
+	Nokia5110_SetCursor(10, 4);	
 
 	// Print the time in two digits
 	if (time == 1)Nokia5110_OutString("01");
