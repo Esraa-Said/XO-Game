@@ -43,8 +43,10 @@ for using hardware, these components can be used:
 
 ### Game veiws
 
+
+<p align="center">start game 
+</p>
 <p align="center">
-    game starts screen
         <img src = "./images/splashScreen.png"/>
 </p>
 
