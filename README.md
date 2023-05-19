@@ -41,55 +41,64 @@ for using hardware, these components can be used:
 | update led       |   PB7                       |
 
 
-### Game veiws
+## Game veiws
 
 
-<p align="center"> <h2>start game</h2> 
+
+<p align="center"> <h4>start game</h4> 
 </p>
 <p align="center">
         <img src = "./images/splashScreen.png"/>
 </p>
 
 
-<p align="center"> <h2>X take turn </h2> </p>
+<p align="center"> <h4>X take turn </h4> </p>
 
 <p align="center">
 <img src = "./images/tunrX.png"/>
 </p>
 
 
-<p align="center"> <h2> O take turn  </h2> </p>
+<p align="center"> <h4> O take turn  </h4> </p>
 
 <p align="center">
 <img src = "./images/turnO.png"/>
 </p>
 
-<p align="center"> <h2>  X wins  </h2> </p>
+<p align="center"> <h4>  X wins  </h4> </p>
 
 <p align="center">
 <img src = "./images/winnerX.png"/>
 </p>
 
-<p align="center"> <h2> O wins  </h2> </p>
+<p align="center"> <h4> O wins  </h4> </p>
 
 <p align="center">
 <img src = "./images/winnerO.png"/>
 </p>
 
-<p align="center"> <h2> Draw  </h2> </p>
+<p align="center"> <h4> Draw  </h4> </p>
 
 <p align="center">
 <img src = "./images/draw.png"/>
 </p>
 
-<p align="center"> <h2> Play agian?   </h2> </p>
+<p align="center"> <h4> Play agian?   </h4> </p>
 
 <p align="center">
 <img src = "./images/play_again.png"/>
 </p>
 
-<p align="center"> <h2> End Game  </h2> </p>
+<p align="center"> <h4> End Game  </h4> </p>
 
 <p align="center">
 <img src = "./images/end_game.png"/>
 </p>
+
+
+## Team Members
+- Mahmoud Essam 
+- Mahmoud Mohamed
+- Khaled Ramadan
+- Samar Mahmoud 
+- Esraa Said 
