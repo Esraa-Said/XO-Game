@@ -12,7 +12,7 @@ extern int arr[3][3];
 // Defining macros for square height and vertical line height
 #define SQUAREHEIGHT     ((unsigned char)square[22])
 #define VH               ((unsigned char)VLine[22])
-
+#define playAgainH ((unsigned char)playAgain[22])
 /*
   0 empty
   1 x
@@ -159,9 +159,9 @@ void menu(void)
   setLED_D();
 
   // Clearing Nokia5110 screen and displaying menu options at the correct positions
-  Nokia5110_Clear();
-  Nokia5110_SetCursor(1, 1);
-  Nokia5110_OutString("SW1: Again?");
-  Nokia5110_SetCursor(1, 3);
-  Nokia5110_OutString("SW2: End");
+Nokia5110_ClearBuffer();
+Nokia5110_PrintBMP(0, playAgainH - 1,playAgain , 0);
+Nokia5110_DisplayBuffer();
+
+
 }
