@@ -18,7 +18,7 @@ for using hardware, these components can be used:
 - 2 switches
 
 #### Blue Nokia 5110 Connections
-<p align="center">
+
 |           Signal          |           (Nokia 5110) LaunchPad pin          |
 | ------------------------- | --------------------------------------------- |
 |           Reset           |           (RST, pin 1) connected to PB7       |
@@ -29,10 +29,9 @@ for using hardware, these components can be used:
 |           3.3V            |           (Vcc, pin 6) power                  |
 |           back light      |           (BL,  pin 7) not connected          |
 |           Ground          |           (Gnd, pin 8) ground                 |
-</p>
 
 #### Other connections
-<p align="center"> 
+
 | component        | (Nokia 5110) LaunchPad pin  |
 | ---------------- | --------------------------- |
 | move switch      |   PB0                       |
@@ -40,12 +39,12 @@ for using hardware, these components can be used:
 | first player led |   PB2                       |
 | second player led|   PB3                       |
 | update led       |   PB7                       |
-</p>
+
 
 ### Game veiws
 
-- game starts screen
 <p align="center">
+    game starts screen
         <img src = "./images/splashScreen.png"/>
 </p>
 
