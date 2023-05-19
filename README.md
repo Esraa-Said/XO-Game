@@ -37,3 +37,29 @@ for using hardware, these components can be used:
 | first player led |   PB2                       |
 | second player led|   PB3                       |
 | update led       |   PB7                       |
+
+### Game veiws
+
+- game starts screen
+<img src = "./images/splashScreen.png"/>
+
+- X take turn 
+<img src = "./images/tunrX.png"/>
+
+- O take turn 
+<img src = "./images/tunrO.png"/>
+
+- X wins 
+<img src = "./images/winnerX.png"/>
+
+- O wins
+<img src = "./images/winneO.png"/>
+
+- Draw
+<img src = "./images/draw.png"/>
+
+- Play agian? 
+<img src = "./images/play_again.png"/>
+
+- End Game 
+<img src = "./images/end_game.png"/>
