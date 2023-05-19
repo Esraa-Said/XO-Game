@@ -44,43 +44,52 @@ for using hardware, these components can be used:
 ### Game veiws
 
 
-<p align="center">start game 
+<p align="center"> <h2>start game</h2> 
 </p>
 <p align="center">
         <img src = "./images/splashScreen.png"/>
 </p>
 
-- X take turn 
+
+<p align="center"> <h2>X take turn </h2> </p>
+
 <p align="center">
 <img src = "./images/tunrX.png"/>
 </p>
 
-- O take turn 
+
+<p align="center"> <h2> O take turn  </h2> </p>
+
 <p align="center">
 <img src = "./images/turnO.png"/>
 </p>
 
-- X wins 
+<p align="center"> <h2>  X wins  </h2> </p>
+
 <p align="center">
 <img src = "./images/winnerX.png"/>
 </p>
 
-- O wins
+<p align="center"> <h2> O wins  </h2> </p>
+
 <p align="center">
 <img src = "./images/winnerO.png"/>
 </p>
 
-- Draw
+<p align="center"> <h2> Draw  </h2> </p>
+
 <p align="center">
 <img src = "./images/draw.png"/>
 </p>
 
-- Play agian? 
+<p align="center"> <h2> Play agian?   </h2> </p>
+
 <p align="center">
 <img src = "./images/play_again.png"/>
 </p>
 
-- End Game 
+<p align="center"> <h2> End Game  </h2> </p>
+
 <p align="center">
 <img src = "./images/end_game.png"/>
 </p>
