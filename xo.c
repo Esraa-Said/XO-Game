@@ -7,31 +7,19 @@
 #include "./headers/leds.h"
 #include "./headers/xo.h"
 
-// extern const unsigned char SelectX[], SelectO[], O[], X[] , square[], selectedSquare[] , Select[];
 int arr[3][3] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-int pos, time = 1;
+int pos, time = 1, turn = 0,  ok;
 
-// check winner  0  draw   1 x     2  o   3 no action
-// *************************** Images ***************************
-// enemy ship that starts at the top of the screen (arms/mouth closed)
-// width=16 x height=10
-
-// 2. Declarations Section
-//   Global Variables
 unsigned long SW1, SW2; // input from PF4,PF0
 unsigned long Out;		// outputs to PF3,PF2,PF1 (multicolor LED)
-
-int turn = 0; // x = 0 , o = 1
-// *************************** Capture image dimensions out of BMP**********
-int ok;
 
 int main(void)
 {
 
 	PortB_Init();
-	EnableInterrupts();					   // The grader uses interrupts
-	TExaS_Init(SSI0_Real_Nokia5110_Scope); // set system clock to 80 MHz
+	EnableInterrupts();
+	TExaS_Init(SSI0_Real_Nokia5110_Scope);
 	Nokia5110_Init();
 
 	setLED_D();
@@ -41,8 +29,7 @@ int main(void)
 	{
 	}
 
-	// Timer0_Init(5 * 160000000);//1 sec timer
-	Timer2_Init(160000000); // 1 sec timer
+	Timer2_Init(160000000);
 
 	init();
 	turnX();
@@ -122,10 +109,11 @@ void init(void)
 			arr[i][j] = 0;
 		}
 	}
-	arr[0][0] = 3;
+
+	pos = 0;
 	turn = 0;
 	SW1 = 0;
 	SW2 = 0;
 	time = 1;
-	ok = 0;
+	arr[0][0] = 3;
 }

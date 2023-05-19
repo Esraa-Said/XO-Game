@@ -4,9 +4,9 @@
 #include "..\\./headers/leds.h"
 
 /*
-    X = PB2     0x04
-    O = PB3     0x08
-    D = PB7     0x80
+  X = PB2     0x04
+  O = PB3     0x08
+  D = PB7     0x80
 */
 
 void setLED_X(void)

@@ -1,4 +1,4 @@
 void move(void);
-int update(void);
 void getFirst(void);
+int update(void);
 int checkWinner(void);

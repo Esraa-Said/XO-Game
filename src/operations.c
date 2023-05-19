@@ -1,19 +1,17 @@
 #include "..\\./headers/screens.h"
 #include "..\\./headers/operations.h"
 
-extern int arr[3][3];
-extern int pos, turn;
+extern int arr[3][3], pos, turn;
+
 
 void getFirst(void)
 {
-	// if()
 	pos = 0;
 	while (arr[pos / 3][pos % 3])
 		pos = (pos + 1) % 9;
 	arr[pos / 3][pos % 3] = 3;
 	return;
 }
-
 
 void move(void)
 {
@@ -23,9 +21,6 @@ void move(void)
 		pos = (pos + 1) % 9;
 	arr[pos / 3][pos % 3] = 3;
 }
-
-
-
 
 int update(void)
 {
@@ -42,22 +37,18 @@ int update(void)
 	if (w != 0)
 	{
 		startGame();
-		// Delay100ms(2);
 	}
 
 	if (w == 1)
 	{
-		// GPIO_PORTF_DATA_R=0x04;
 		winner_x();
 	}
 	else if (w == 2)
 	{
-		// GPIO_PORTF_DATA_R = 0x08;
 		winner_o();
 	}
 	else if (w == 3)
 	{
-		// GPIO_PORTF_DATA_R=0x0F;
 		draw();
 	}
 
@@ -125,4 +116,3 @@ int checkWinner(void)
 		return 3;
 	return 0;
 }
-

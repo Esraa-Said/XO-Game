@@ -44,7 +44,8 @@ void startGame(void)
 
 			Nokia5110_PrintBMP(j * SQUAREHEIGHT + outerX, (SQUAREHEIGHT - 1) + (dim * i) + outerY, tmp, 0);
 			Nokia5110_DisplayBuffer();
-			outerX += 1;
+			
+      outerX += 1;
 		}
 		outerX = 1;
 		outerY += 5;
