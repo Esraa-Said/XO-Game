@@ -26,7 +26,7 @@ int main(void)
 	// Setting up LED display and displaying splash screen 
 	setLED_D();
 	splashScreen();
-	//winner_o();
+		
 	// Clearing any switch inputs
 	clear_switches();
 
@@ -73,12 +73,12 @@ int main(void)
 
 			time = 1;
 
-			// If a player has won or the game has tied, display the menu and set ok to true to wait for restart or quit
+			// If a player has won or the game has tied, display the play again option and set ok to true to wait for restart or quit
       if(update())
       {
 				disable_timer2();
 				Delay100ms(20);
-				menu();
+				play_again();
 				clear_switches();
 				ok = 1;
 			}

@@ -9,10 +9,11 @@
 // Declaring external integer array of size 3x3
 extern int arr[3][3];
 
-// Defining macros for square height and vertical line height
+// Defining macros for square height, vertical line height, and playAgain screen height
 #define SQUAREHEIGHT     ((unsigned char)square[22])
 #define VH               ((unsigned char)VLine[22])
-#define playAgainH ((unsigned char)playAgain[22])
+#define playAgainH       ((unsigned char)playAgain[22])
+
 /*
   0 empty
   1 x
@@ -152,16 +153,14 @@ void end_game(void)
   Nokia5110_OutString("XO GAME");
 }
 
-// Function to display menu options on Nokia5110 screen
-void menu(void)
+// Function to display play again option on Nokia5110 screen
+void play_again(void)
 {
   // set LED for D (Draw)
   setLED_D();
 
-  // Clearing Nokia5110 screen and displaying menu options at the correct positions
-Nokia5110_ClearBuffer();
-Nokia5110_PrintBMP(0, playAgainH - 1,playAgain , 0);
-Nokia5110_DisplayBuffer();
-
-
+  // Clearing Nokia5110 screen and displaying  play again option
+  Nokia5110_ClearBuffer();
+  Nokia5110_PrintBMP(0, playAgainH - 1, playAgain, 0);
+  Nokia5110_DisplayBuffer();
 }
