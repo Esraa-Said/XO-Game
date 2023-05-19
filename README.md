@@ -1,7 +1,7 @@
 #                   XO Game
 We will introduce XO game using microcontroller (**tm4c123gh6pm**) **Tiva-C LaunchPad** 
 
-<img src = "./images/tivaC.png"/>
+<img src = "./game/images/tivaC.png"/>
 
 ## Hardware I/O connections
 
@@ -18,6 +18,7 @@ for using hardware, these components can be used:
 - 2 switches
 
 #### Blue Nokia 5110 Connections
+
 |           Signal          |           (Nokia 5110) LaunchPad pin          |
 | ------------------------- | --------------------------------------------- |
 |           Reset           |           (RST, pin 1) connected to PB7       |
@@ -29,7 +30,8 @@ for using hardware, these components can be used:
 |           back light      |           (BL,  pin 7) not connected          |
 |           Ground          |           (Gnd, pin 8) ground                 |
 
-#### Other connections 
+#### Other connections
+
 | component        | (Nokia 5110) LaunchPad pin  |
 | ---------------- | --------------------------- |
 | move switch      |   PB0                       |
@@ -37,3 +39,57 @@ for using hardware, these components can be used:
 | first player led |   PB2                       |
 | second player led|   PB3                       |
 | update led       |   PB7                       |
+
+
+### Game veiws
+
+
+<p align="center"> <h2>start game</h2> 
+</p>
+<p align="center">
+        <img src = "./game/images/splashScreen.png"/>
+</p>
+
+
+<p align="center"> <h2>X take turn </h2> </p>
+
+<p align="center">
+<img src = "./game/images/tunrX.png"/>
+</p>
+
+
+<p align="center"> <h2> O take turn  </h2> </p>
+
+<p align="center">
+<img src = "./game/images/turnO.png"/>
+</p>
+
+<p align="center"> <h2>  X wins  </h2> </p>
+
+<p align="center">
+<img src = "./game/images/winnerX.png"/>
+</p>
+
+<p align="center"> <h2> O wins  </h2> </p>
+
+<p align="center">
+<img src = "./game/images/winnerO.png"/>
+</p>
+
+<p align="center"> <h2> Draw  </h2> </p>
+
+<p align="center">
+<img src = "./game/images/draw.png"/>
+</p>
+
+<p align="center"> <h2> Play agian?   </h2> </p>
+
+<p align="center">
+<img src = "./game/images/play_again.png"/>
+</p>
+
+<p align="center"> <h2> End Game  </h2> </p>
+
+<p align="center">
+<img src = "./game/images/end_game.png"/>
+</p>
