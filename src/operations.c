@@ -5,7 +5,7 @@
 // Declaring global variables
 extern int arr[3][3], pos, turn;
 
-// Function to get the first move
+// Function to get the first position can be selected
 void getFirst(void)
 {
   // Initializing position

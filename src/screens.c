@@ -61,6 +61,7 @@ void turnO(void)
 {
   startGame();
 
+  // set LED for O
   setLED_O();
 
   // Displaying vertical line separator between game board and player information
@@ -82,6 +83,7 @@ void turnX(void)
 {
   startGame();
 
+  // set LED for X
   setLED_X();
   
   // Displaying vertical line separator between game board and player information
@@ -108,6 +110,7 @@ void splashScreen(void)
 // Function to display draw on Nokia5110 screen
 void draw(void) 
 {
+  // set LED for D (Draw)
 	setLED_D();
 
   // Displaying the draw image
@@ -118,6 +121,7 @@ void draw(void)
 // Function to display winner X on Nokia5110 screen
 void winner_x(void) 
 {
+  // set LED for X
   setLED_X();
 
   // Displaying the winner
@@ -125,8 +129,10 @@ void winner_x(void)
   Nokia5110_DisplayBuffer();
 }
 
+// Function to display winner O on Nokia5110 screen
 void winner_o(void) 
 {
+  // set LED for O
 	setLED_O();
 
   // Displaying the winner
@@ -134,9 +140,10 @@ void winner_o(void)
   Nokia5110_DisplayBuffer();
 }
 
-// Function to end the game and display splash screen
+// Function to end the game
 void end_game(void)
 {
+  // clear all LEDs
   clearLEDS();
 
   // Clearing Nokia5110 screen and displaying "XO GAME" at the correct position
@@ -148,6 +155,7 @@ void end_game(void)
 // Function to display menu options on Nokia5110 screen
 void menu(void)
 {
+  // set LED for D (Draw)
   setLED_D();
 
   // Clearing Nokia5110 screen and displaying menu options at the correct positions
