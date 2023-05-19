@@ -26,7 +26,6 @@ int main(void)
 	// Setting up LED display and displaying splash screen 
 	setLED_D();
 	splashScreen();
-	//winner_o();
 	// Clearing any switch inputs
 	clear_switches();
 
