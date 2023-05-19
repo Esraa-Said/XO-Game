@@ -41,19 +41,21 @@ for using hardware, these components can be used:
 ### Game veiws
 
 - game starts screen
-<img src = "./images/splashScreen.png"/>
+<p align="center">
+        <img src = "./images/splashScreen.png"/>
+</p>
 
 - X take turn 
 <img src = "./images/tunrX.png"/>
 
 - O take turn 
-<img src = "./images/tunrO.png"/>
+<img src = "./images/turnO.png"/>
 
 - X wins 
 <img src = "./images/winnerX.png"/>
 
 - O wins
-<img src = "./images/winneO.png"/>
+<img src = "./images/winnerO.png"/>
 
 - Draw
 <img src = "./images/draw.png"/>
