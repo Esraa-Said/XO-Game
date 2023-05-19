@@ -12,7 +12,6 @@ extern int time, turn;
 
 // Defining macros for square height, vertical line height, and playAgain screen height
 #define SQUAREHEIGHT     ((unsigned char)square[22])
-#define VH               ((unsigned char)VLine[22])
 #define playAgainH       ((unsigned char)playAgain[22])
 #define EXITH ((unsigned char)exit[22])
 #define TURNXOBOXH ((unsigned char)turnxbox[22])
@@ -70,9 +69,6 @@ void turnO(void)
   // set LED for O
   setLED_O();
 
-  // Displaying vertical line separator between game board and player information
-  Nokia5110_PrintBMP(3 * SQUAREHEIGHT + 6, VH, VLine, 0);
-  Nokia5110_DisplayBuffer();
 
   // Displaying "PLAY" and "O" at the correct positions on Nokia5110 screen
  Nokia5110_PrintBMP(0, TURNXOBOXH - 1, turnobox, 0);
@@ -89,10 +85,7 @@ void turnX(void)
 
   // set LED for X
   setLED_X();
-  
-  // Displaying vertical line separator between game board and player information
-  Nokia5110_PrintBMP(3 * SQUAREHEIGHT + 6, VH, VLine, 0);
-  Nokia5110_DisplayBuffer();
+ 
 
   // Displaying "PLAY" and "X" at the correct positions on Nokia5110 screen
 	Nokia5110_PrintBMP(0, TURNXOBOXH - 1, turnxbox, 0);
@@ -171,17 +164,34 @@ void play_again(void)
 void printTime(void)
 {
 
-  if (time == 1)
-    Nokia5110_PrintBMP(84 - TURNTIMERBOXH, TURNTIMERBOXH - 1, t1, 0);
+	if (time == 1)
+	{
+		Nokia5110_PrintBMP(84 - TURNTIMERBOXH, 55 - TURNTIMERBOXH , t1, 0);
+		Nokia5110_DisplayBuffer();
+	}
 
-  else if (time == 2)
-    Nokia5110_PrintBMP(84 - TURNTIMERBOXH, TURNTIMERBOXH - 1, t2, 0);
+	else if (time == 2)
+	{
+		Nokia5110_PrintBMP(84 - TURNTIMERBOXH, 55 - TURNTIMERBOXH , t2, 0);
+		Nokia5110_DisplayBuffer();
+	}
 
-  else if (time == 3)
-    Nokia5110_PrintBMP(84 - TURNTIMERBOXH, TURNTIMERBOXH - 1, t3, 0);
-  else if (time == 4)
-    Nokia5110_PrintBMP(84 - TURNTIMERBOXH, TURNTIMERBOXH - 1, t4, 0);
-  else if (time == 5)
-    Nokia5110_PrintBMP(84 - TURNTIMERBOXH, TURNTIMERBOXH - 1, t5, 0);
+	else if (time == 3)
+	{
+		Nokia5110_DisplayBuffer();
+		Nokia5110_PrintBMP(84 - TURNTIMERBOXH,55- TURNTIMERBOXH , t3, 0);
+		Nokia5110_DisplayBuffer();
+	}
+	else if (time == 4)
+	{
+		Nokia5110_PrintBMP(84 - TURNTIMERBOXH, 55-TURNTIMERBOXH , t4, 0);
+		Nokia5110_DisplayBuffer();
+	}
+
+	else if (time == 5)
+	{
+		Nokia5110_PrintBMP(84 - TURNTIMERBOXH, 55-TURNTIMERBOXH , t5, 0);
+		Nokia5110_DisplayBuffer();
+	}
 }
 
