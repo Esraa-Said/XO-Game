@@ -73,40 +73,29 @@ void turnX(void)
 
 void splashScreen(void)
 {
-  Nokia5110_Clear();
-  Nokia5110_SetCursor(2, 2);
-  Nokia5110_OutString("XO GAME");
+	Nokia5110_PrintBMP(0, 47, xo, 0);
+	Nokia5110_DisplayBuffer();
 }
 
 void draw(void) 
 {
 	setLED_D();
-	
-  Nokia5110_Clear();
-  Nokia5110_SetCursor(2, 2);
-  Nokia5110_OutString("DRAW");
+	Nokia5110_PrintBMP(0, 47, Draw, 0);
+  Nokia5110_DisplayBuffer();
 }
 
 void winner_x(void) 
 {
   setLED_X();
-	
-  Nokia5110_Clear();
-  Nokia5110_SetCursor(1, 1);
-  Nokia5110_OutString("THE WINNER");
-  Nokia5110_SetCursor(4, 3);
-  Nokia5110_OutString("( X )");
+  Nokia5110_PrintBMP(0, 47, Winner_x, 0);
+  Nokia5110_DisplayBuffer();
 }
 
 void winner_o(void) 
 {
 	setLED_O();
-
-	Nokia5110_Clear();
-  Nokia5110_SetCursor(1, 1);
-  Nokia5110_OutString("THE WINNER");
-  Nokia5110_SetCursor(4, 3);
-  Nokia5110_OutString("( O )");
+	Nokia5110_PrintBMP(0, 47, Winner_o, 0);
+  Nokia5110_DisplayBuffer();
 }
 
 void end_game(void) 
