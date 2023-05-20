@@ -39,7 +39,7 @@ void Timer2_Init(unsigned long period)
   // Setting the interrupt priority to 4 (lower than default)
   NVIC_PRI5_R = (NVIC_PRI5_R & 0x00FFFFFF) | 0x80000000; 
 
-  // Enabling the interrupt in the NVIC
+  // Enabling the interrupt in the NVIC		// IRQ = 23
   NVIC_EN0_R = 1 << 23;    
 
   // Enabling Timer 2
